@@ -1,22 +1,23 @@
-package com.testbook.BookStore.domain
+package com.testbook.BookStore.domain.entity
 
 import jakarta.persistence.*
 
 @Entity
 @Table(name = "books")
-data class Book(
+data class BookEntity(
     @Id
-    @Column(name = "book_id")
+    @Column(name = "id")
     val isbn: String,
-    @Column(name = "book_title")
+    @Column(name = "title")
     val title: String,
-    @Column(name = "book_description")
+    @Column(name = "description")
     val description:String,
 
-    @Column(name = "book_image")
+    @Column(name = "image")
     val image: String,
 
     @ManyToOne(cascade = [(CascadeType.DETACH)])
     @JoinColumn(name = "author_id")
-    val author: Author) {
+    val authorEntity: AuthorEntity
+) {
 }

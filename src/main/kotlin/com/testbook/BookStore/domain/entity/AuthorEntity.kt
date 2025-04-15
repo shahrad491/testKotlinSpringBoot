@@ -1,21 +1,21 @@
-package com.testbook.BookStore.domain
+package com.testbook.BookStore.domain.entity
 
 import jakarta.persistence.*
 
 @Entity
 @Table(name = "authors")
-data class Author(
+data class AuthorEntity(
     @Id
-    @Column(name = "author_id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "author_id_seq")
     val id: Long?,
-    @Column(name = "author_name")
+    @Column(name = "name")
     val name: String,
-    @Column(name = "author_age")
+    @Column(name = "age")
     val age: Int,
-    @Column(name = "author_description")
+    @Column(name = "description")
     val description: String,
-    @Column(name = "author_image")
+    @Column(name = "image")
     val image: String){
 
 
