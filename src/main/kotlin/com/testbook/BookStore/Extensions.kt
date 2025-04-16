@@ -1,6 +1,8 @@
 package com.testbook.BookStore
 
+import com.testbook.BookStore.domain.AuthorUpdateReq
 import com.testbook.BookStore.domain.dto.AuthorDto
+import com.testbook.BookStore.domain.dto.AuthorUpdateReqDto
 import com.testbook.BookStore.domain.entity.AuthorEntity
 
 fun AuthorEntity.toAuthorDto() = AuthorDto(
@@ -12,6 +14,14 @@ fun AuthorEntity.toAuthorDto() = AuthorDto(
     )
 
 fun AuthorDto.toAuthorEntity() = AuthorEntity(
+    id= this.id,
+    name = this.name,
+    age = this.age,
+    description = this.description,
+    image = this.image,
+)
+
+fun AuthorUpdateReqDto.toAuthorUpdateReq()=AuthorUpdateReq(
     id= this.id,
     name = this.name,
     age = this.age,

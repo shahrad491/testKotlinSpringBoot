@@ -1,6 +1,8 @@
 package com.testbook.BookStore
 
+import com.testbook.BookStore.domain.AuthorUpdateReq
 import com.testbook.BookStore.domain.dto.AuthorDto
+import com.testbook.BookStore.domain.dto.AuthorUpdateReqDto
 import com.testbook.BookStore.domain.entity.AuthorEntity
 
 fun testAuthorDtoA(id: Long?=null) =AuthorDto (
@@ -17,4 +19,28 @@ fun testAuthorEntityA(id: Long?=null) =AuthorEntity (
         age = 20,
         image = "author-image.jpg",
         description = "testUser",
+)
+
+fun testAuthorEntityB(id: Long?=null) =AuthorEntity(
+        id = id,
+        name = "updated author",
+        age = 50,
+        description = "updated author",
+        image = "updatedimage.jpg",
+)
+
+fun testAuthorUpdateDtoA(id: Long?=null) =AuthorUpdateReqDto(
+        id= 999,
+        name= "testUserupdateddd",
+        age = 20,
+        image = "author-image.jpg",
+        description = "testUserupdateddd",
+)
+
+fun testAuthorUpdateReqA(id: Long?=null) =AuthorUpdateReq(
+        id= 999,
+        name= "testUserupdateddd",
+        age = 20,
+        image = "author-image.jpg",
+        description = "testUserupdateddd",
 )
