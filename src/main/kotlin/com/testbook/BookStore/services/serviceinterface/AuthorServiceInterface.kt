@@ -5,4 +5,5 @@ import com.testbook.BookStore.domain.entity.AuthorEntity
 interface AuthorServiceInterface {
     fun save(authorEntity: AuthorEntity):AuthorEntity
     fun list():List<AuthorEntity>
+    fun getAuthors(id:Long):AuthorEntity?
 }

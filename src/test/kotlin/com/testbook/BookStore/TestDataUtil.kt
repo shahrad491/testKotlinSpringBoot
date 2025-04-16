@@ -4,7 +4,7 @@ import com.testbook.BookStore.domain.dto.AuthorDto
 import com.testbook.BookStore.domain.entity.AuthorEntity
 
 fun testAuthorDtoA(id: Long?=null) =AuthorDto (
-        id=null,
+        id=id,
         name = "testUser",
         age = 20,
         image = "author-image.jpg",
@@ -12,7 +12,7 @@ fun testAuthorDtoA(id: Long?=null) =AuthorDto (
         )
 
 fun testAuthorEntityA(id: Long?=null) =AuthorEntity (
-        id=null,
+        id=id,
         name = "testUser",
         age = 20,
         image = "author-image.jpg",

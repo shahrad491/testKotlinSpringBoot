@@ -3,6 +3,7 @@ package com.testbook.BookStore.services
 import com.testbook.BookStore.domain.entity.AuthorEntity
 import com.testbook.BookStore.repo.AuthorRepo
 import com.testbook.BookStore.services.serviceinterface.AuthorServiceInterface
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 
 @Service
@@ -13,5 +14,9 @@ class AuthorService(private val authorRepo: AuthorRepo): AuthorServiceInterface 
 
     override fun list(): List<AuthorEntity> {
         return authorRepo.findAll()
+    }
+
+    override fun getAuthors(id:Long): AuthorEntity?{
+        return authorRepo.findByIdOrNull(id)
     }
 }
