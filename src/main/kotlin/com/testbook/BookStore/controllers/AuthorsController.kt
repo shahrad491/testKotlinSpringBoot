@@ -9,6 +9,7 @@ import com.testbook.BookStore.toAuthorEntity
 import com.testbook.BookStore.toAuthorUpdateReq
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PatchMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -64,6 +65,16 @@ class AuthorsController(
             ResponseEntity(updatedAuthor.toAuthorDto(), HttpStatus.OK)
         }catch (ex:IllegalStateException){
             ResponseEntity(HttpStatus.BAD_REQUEST)
+        }
+    }
+
+    @DeleteMapping(path = ["/{id}"])
+    fun deleteAuthorById(@PathVariable("id") id:Long):ResponseEntity<AuthorDto>{
+        return try {
+            val deletedAuthor = authorService.delete(id)
+            ResponseEntity(deletedAuthor.toAuthorDto(),HttpStatus.OK)
+        }catch (ex: IllegalStateException){
+            ResponseEntity(HttpStatus.NOT_FOUND)
         }
     }
 }

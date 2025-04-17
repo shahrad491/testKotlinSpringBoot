@@ -44,4 +44,11 @@ class AuthorService(private val authorRepo: AuthorRepo): AuthorServiceInterface 
 
         return authorRepo.save(updatedAuthor)
     }
+
+    override fun delete(id: Long): AuthorEntity {
+        val existingAuthor = authorRepo.findByIdOrNull(id)
+        checkNotNull(existingAuthor)
+        authorRepo.deleteById(id)
+        return existingAuthor
+    }
 }
