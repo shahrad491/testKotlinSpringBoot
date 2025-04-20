@@ -33,8 +33,8 @@ class BooksController(private val bookService: BookService) {
     }
 
     @GetMapping()
-    fun getBooks():List<BookSumDto>{
-        return bookService.getBooks().map { it.toBookSumDto() }
+    fun getBooks(@RequestParam("author") authorId:Long?):List<BookSumDto>{
+        return bookService.getBooks(authorId).map { it.toBookSumDto() }
     }
 
 

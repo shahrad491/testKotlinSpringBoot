@@ -14,19 +14,22 @@ import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.data.repository.findByIdOrNull
+import org.springframework.test.context.DynamicPropertySource
+import org.springframework.transaction.annotation.Transactional
 
 @SpringBootTest
+@Transactional
 class AuthorServiceTest @Autowired constructor(
 
     @Autowired
     private val underTest: AuthorService,
     private val authorRepo: AuthorRepo
 ) {
-    @BeforeEach
-    fun setUp() {
-        authorRepo.deleteAll()
-    }
-
+//    @BeforeEach
+//    fun setUp() {
+//        authorRepo.deleteAll()
+//    }
+//
     @Test
     fun `test that Author with id throws an illegal argument exception`() {
         assertThrows<IllegalArgumentException> {
@@ -40,9 +43,10 @@ class AuthorServiceTest @Autowired constructor(
         val savedAuthor = underTest.create(testAuthorEntityA())
         assertThat(savedAuthor.id).isNotNull()
 
-        val reAuthor = authorRepo.findByIdOrNull(savedAuthor.id)
+        val reAuthor :AuthorEntity = authorRepo.findByIdOrNull(savedAuthor.id)!!
+        val expectedAuthor :AuthorEntity = testAuthorEntityA(id =savedAuthor.id)
         assertThat(reAuthor).isNotNull()
-        assertThat(reAuthor).isEqualTo(testAuthorEntityA(id  = savedAuthor.id ))
+        assertThat(reAuthor).usingRecursiveComparison().isEqualTo(expectedAuthor)
     }
 
     @Test
@@ -63,7 +67,7 @@ class AuthorServiceTest @Autowired constructor(
     @Test
     fun `test that get returns null when there is no author by the id`(){
         val res = underTest.getAuthors(id =9999)
-        assertThat(res).isNull()
+        assertThat(res).usingRecursiveComparison().isNull()
     }
 
     @Test
@@ -188,10 +192,10 @@ class AuthorServiceTest @Autowired constructor(
         val updatedAuthor = underTest.partUpdate(existAuthor.id!!, authorUpdate)
 
         val expected = expected.copy(id = authorId)
-        assertThat(updatedAuthor).isEqualTo(expected)
+        assertThat(updatedAuthor).usingRecursiveAssertion().isEqualTo(expected)
 
         val gotAuthor = authorRepo.findByIdOrNull(authorId)
         assertThat(gotAuthor).isNotNull()
-        assertThat(gotAuthor).isEqualTo(expected)
+        assertThat(gotAuthor).usingRecursiveAssertion().isEqualTo(expected)
     }
 }

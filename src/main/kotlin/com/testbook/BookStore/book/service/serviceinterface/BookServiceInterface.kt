@@ -6,5 +6,5 @@ import com.testbook.BookStore.book.model.BookEntity
 
 interface BookServiceInterface {
     fun upsert(isbn: String, book: BookSum): Pair<BookEntity, Boolean>
-    fun getBooks(): List<BookEntity>
+    fun getBooks(authorId:Long?): List<BookEntity>
 }
