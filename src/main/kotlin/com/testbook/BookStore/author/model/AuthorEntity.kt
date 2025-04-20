@@ -1,6 +1,8 @@
-package com.testbook.BookStore.domain.entity
+package com.testbook.BookStore.author.model
 
+import com.testbook.BookStore.book.model.BookEntity
 import jakarta.persistence.*
+import java.awt.print.Book
 
 @Entity
 @Table(name = "authors")
@@ -16,7 +18,11 @@ data class AuthorEntity(
     @Column(name = "description")
     val description: String,
     @Column(name = "image")
-    val image: String){
+    val image: String,
+
+    @OneToMany(mappedBy = "authorEntity", cascade = [CascadeType.REMOVE])
+    val books: List<BookEntity> = emptyList()
+
+)
 
 
-}

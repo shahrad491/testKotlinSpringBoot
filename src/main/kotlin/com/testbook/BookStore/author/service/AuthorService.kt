@@ -1,9 +1,9 @@
-package com.testbook.BookStore.services
+package com.testbook.BookStore.author.service
 
-import com.testbook.BookStore.domain.AuthorUpdateReq
-import com.testbook.BookStore.domain.entity.AuthorEntity
-import com.testbook.BookStore.repo.AuthorRepo
-import com.testbook.BookStore.services.serviceinterface.AuthorServiceInterface
+import com.testbook.BookStore.author.dto.AuthorUpdateReq
+import com.testbook.BookStore.author.model.AuthorEntity
+import com.testbook.BookStore.author.repo.AuthorRepo
+import com.testbook.BookStore.author.service.serviceinterface.AuthorServiceInterface
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

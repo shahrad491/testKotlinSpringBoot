@@ -1,12 +1,12 @@
 package com.testbook.BookStore.services
 
-import com.testbook.BookStore.domain.AuthorUpdateReq
-import com.testbook.BookStore.domain.entity.AuthorEntity
-import com.testbook.BookStore.repo.AuthorRepo
-import com.testbook.BookStore.testAuthorDtoA
+import com.testbook.BookStore.author.dto.AuthorUpdateReq
+import com.testbook.BookStore.author.model.AuthorEntity
+import com.testbook.BookStore.author.repo.AuthorRepo
 import com.testbook.BookStore.testAuthorEntityA
 import com.testbook.BookStore.testAuthorEntityB
 import com.testbook.BookStore.testAuthorUpdateReqA
+import com.testbook.BookStore.author.service.AuthorService
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -17,12 +17,11 @@ import org.springframework.data.repository.findByIdOrNull
 
 @SpringBootTest
 class AuthorServiceTest @Autowired constructor(
-    private val underTest:AuthorService,
-    private val authorRepo:AuthorRepo
-) {
-    @Autowired
-    private lateinit var authorService: AuthorService
 
+    @Autowired
+    private val underTest: AuthorService,
+    private val authorRepo: AuthorRepo
+) {
     @BeforeEach
     fun setUp() {
         authorRepo.deleteAll()
@@ -178,9 +177,9 @@ class AuthorServiceTest @Autowired constructor(
     }
 
         private fun assertThatAuthorPartUpdateIsUpdated(
-        existAuthor:AuthorEntity,
-        expected: AuthorEntity,
-        authorUpdate: AuthorUpdateReq,
+            existAuthor: AuthorEntity,
+            expected: AuthorEntity,
+            authorUpdate: AuthorUpdateReq,
     ){
 
         val saveExistAuthor = authorRepo.save(existAuthor)

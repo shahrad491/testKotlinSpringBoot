@@ -1,11 +1,11 @@
 package com.testbook.BookStore
 
-import com.testbook.BookStore.domain.AuthorUpdateReq
-import com.testbook.BookStore.domain.dto.AuthorDto
-import com.testbook.BookStore.domain.dto.AuthorUpdateReqDto
-import com.testbook.BookStore.domain.entity.AuthorEntity
+import com.testbook.BookStore.author.dto.AuthorUpdateReq
+import com.testbook.BookStore.author.dto.AuthorDto
+import com.testbook.BookStore.author.dto.AuthorUpdateReqDto
+import com.testbook.BookStore.author.model.AuthorEntity
 
-fun testAuthorDtoA(id: Long?=null) =AuthorDto (
+fun testAuthorDtoA(id: Long?=null) = AuthorDto (
         id=id,
         name = "testUser",
         age = 20,
@@ -13,7 +13,7 @@ fun testAuthorDtoA(id: Long?=null) =AuthorDto (
         description = "testUser",
         )
 
-fun testAuthorEntityA(id: Long?=null) =AuthorEntity (
+fun testAuthorEntityA(id: Long?=null) = AuthorEntity (
         id=id,
         name = "testUser",
         age = 20,
@@ -21,7 +21,7 @@ fun testAuthorEntityA(id: Long?=null) =AuthorEntity (
         description = "testUser",
 )
 
-fun testAuthorEntityB(id: Long?=null) =AuthorEntity(
+fun testAuthorEntityB(id: Long?=null) = AuthorEntity(
         id = id,
         name = "updated author",
         age = 50,
@@ -29,7 +29,7 @@ fun testAuthorEntityB(id: Long?=null) =AuthorEntity(
         image = "updatedimage.jpg",
 )
 
-fun testAuthorUpdateDtoA(id: Long?=null) =AuthorUpdateReqDto(
+fun testAuthorUpdateDtoA(id: Long?=null) = AuthorUpdateReqDto(
         id= 999,
         name= "testUserupdateddd",
         age = 20,
@@ -37,7 +37,7 @@ fun testAuthorUpdateDtoA(id: Long?=null) =AuthorUpdateReqDto(
         description = "testUserupdateddd",
 )
 
-fun testAuthorUpdateReqA(id: Long?=null) =AuthorUpdateReq(
+fun testAuthorUpdateReqA(id: Long?=null) = AuthorUpdateReq(
         id= 999,
         name= "testUserupdateddd",
         age = 20,

@@ -1,6 +1,6 @@
-package com.testbook.BookStore.repo
+package com.testbook.BookStore.author.repo
 
-import com.testbook.BookStore.domain.entity.AuthorEntity
+import com.testbook.BookStore.author.model.AuthorEntity
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 

@@ -1,6 +1,6 @@
-package com.testbook.BookStore.domain.dto
+package com.testbook.BookStore.book.dto
 
-import com.testbook.BookStore.domain.dto.AuthorDto
+import com.testbook.BookStore.author.dto.AuthorDto
 
 class BookDto (
     val isbn: String,

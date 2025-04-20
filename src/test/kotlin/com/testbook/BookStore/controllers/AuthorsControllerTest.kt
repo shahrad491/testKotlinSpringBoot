@@ -2,16 +2,12 @@ package com.testbook.BookStore.controllers
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.ninjasquad.springmockk.MockkBean
-import com.testbook.BookStore.domain.AuthorUpdateReq
-import com.testbook.BookStore.domain.dto.AuthorUpdateReqDto
-import com.testbook.BookStore.domain.entity.AuthorEntity
-import com.testbook.BookStore.repo.AuthorRepo
-import com.testbook.BookStore.services.AuthorService
-import com.testbook.BookStore.services.serviceinterface.AuthorServiceInterface
+import com.testbook.BookStore.author.model.AuthorEntity
+import com.testbook.BookStore.author.repo.AuthorRepo
+import com.testbook.BookStore.author.service.AuthorService
 import com.testbook.BookStore.testAuthorDtoA
 import com.testbook.BookStore.testAuthorEntityA
 import com.testbook.BookStore.testAuthorUpdateDtoA
-import com.testbook.BookStore.toAuthorDto
 import io.mockk.every
 import io.mockk.verify
 import org.hamcrest.CoreMatchers.equalTo
@@ -22,7 +18,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.*
-import org.springframework.transaction.annotation.Transactional
 
 private const val AUTHORS_BASE_URL = "/v1/authors"
 

@@ -1,12 +1,12 @@
-package com.testbook.BookStore.controllers
+package com.testbook.BookStore.author.controller
 
-import com.testbook.BookStore.domain.dto.AuthorDto
-import com.testbook.BookStore.domain.dto.AuthorUpdateReqDto
-import com.testbook.BookStore.services.AuthorService
-import com.testbook.BookStore.services.serviceinterface.AuthorServiceInterface
-import com.testbook.BookStore.toAuthorDto
-import com.testbook.BookStore.toAuthorEntity
-import com.testbook.BookStore.toAuthorUpdateReq
+import com.testbook.BookStore.author.dto.AuthorDto
+import com.testbook.BookStore.author.dto.AuthorUpdateReqDto
+import com.testbook.BookStore.author.service.AuthorService
+import com.testbook.BookStore.author.service.serviceinterface.AuthorServiceInterface
+import com.testbook.BookStore.author.util.toAuthorDto
+import com.testbook.BookStore.author.util.toAuthorEntity
+import com.testbook.BookStore.author.util.toAuthorUpdateReq
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping

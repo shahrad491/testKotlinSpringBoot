@@ -1,4 +1,4 @@
-package com.testbook.BookStore.domain.dto
+package com.testbook.BookStore.author.dto
 
 
 class AuthorUpdateReqDto (

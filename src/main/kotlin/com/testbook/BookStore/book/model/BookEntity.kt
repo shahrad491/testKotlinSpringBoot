@@ -1,12 +1,13 @@
-package com.testbook.BookStore.domain.entity
+package com.testbook.BookStore.book.model
 
+import com.testbook.BookStore.author.model.AuthorEntity
 import jakarta.persistence.*
 
 @Entity
 @Table(name = "books")
 data class BookEntity(
     @Id
-    @Column(name = "id")
+    @Column(name = "isbn")
     val isbn: String,
     @Column(name = "title")
     val title: String,
