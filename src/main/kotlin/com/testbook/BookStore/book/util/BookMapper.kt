@@ -5,6 +5,8 @@ import com.testbook.BookStore.author.util.toAuthorSum
 import com.testbook.BookStore.author.util.toAuthorSumDto
 import com.testbook.BookStore.book.dto.BookSum
 import com.testbook.BookStore.book.dto.BookSumDto
+import com.testbook.BookStore.book.dto.BookUpdateReq
+import com.testbook.BookStore.book.dto.BookUpdateReqDto
 import com.testbook.BookStore.book.model.BookEntity
 
 class BookMapper {
@@ -32,4 +34,10 @@ fun BookEntity.toBookSumDto() = BookSumDto(
     description = this.description,
     image = this.image,
     author = authorEntity.toAuthorSumDto()
+)
+
+fun BookUpdateReqDto.toBookUpdateReq() = BookUpdateReq(
+    title = this.title,
+    description = this.description,
+    image = this.image,
 )
